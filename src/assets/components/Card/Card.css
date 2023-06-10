@@ -1,0 +1,39 @@
+
+.card--active, .card--inactive {
+    cursor: pointer;
+    width: 90px;
+    height: 90px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    background: #fcfcfc;
+    box-shadow: -4px -4px 8px #ffffff, 4px 4px 8px rgba(0, 0, 0, 0.1);
+}
+.card--active {
+    transition: all .5s ease;
+    transform: rotateY(0deg);
+}
+.card--inactive {
+    transition: all .5s ease;
+    transform: rotateY(180deg);
+}
+
+.card-icon--inactive {
+    width: 30px;
+    opacity: 0;
+    transition: all .1s ease;
+}
+.card-icon--active {
+    width: 30px;
+    opacity: .7;
+    transition: all .1s ease;
+}
+
+@media screen and (max-width: 800px) {
+    .card--active, .card--inactive {
+        width: 74px;
+        height: 74px;
+    }
+}
