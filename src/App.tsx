@@ -33,13 +33,6 @@ function App() {
     const timer = setInterval(() => {
       if (playing) {
         setTimeElapsed(timeElapsed+1);
-        if (timeElapsed < 60) {
-          setSeconds(timeElapsed);
-        } else {
-          setTimeElapsed(0);
-          setSeconds(0);
-          setMinutes(+1);
-        }
       }
       console.log(timeElapsed);
     }, 1000);
@@ -69,7 +62,7 @@ function App() {
           setMoveCount(moveCount+1);
           setQuantityActive(0);
           setGridItems(temporaryGrid);
-        }, 2000)
+        }, 1000)
       }
     }
   }, [quantityActive, gridItems]);
@@ -148,7 +141,7 @@ function App() {
       <div className='top--container'>
         <Header />
         <div className='info--container'>
-          <InfoItem label='time' value={ CounterDefaultFormat(`${minutes}`, `${seconds}`) } />
+          <InfoItem label='time' value={ CounterDefaultFormat( timeElapsed ) } />
           <InfoItem label='moves' value={`${moveCount}`} />
         </div>
         <div className='buttons--container'>
@@ -167,7 +160,6 @@ function App() {
           }
         </div>
       </div>
-
       <CreditsBar state={ creditsBarState } 
                   handleClose={ handleCloseClick } 
                   handleFollow={ handleFollowClick } />
